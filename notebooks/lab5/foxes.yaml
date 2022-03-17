@@ -1,0 +1,32 @@
+adaptvars:
+  atol: 1.0e-05
+  dtfailmax: 0.5
+  dtfailmin: 0.1
+  dtpassmax: 5.0
+  dtpassmin: 0.1
+  maxfail: 60.0
+  maxsteps: 2000.0
+  rtol: 1.0e-05
+  s: 0.9
+initvars:
+  blackconc: 0.7
+  foxpop: 7.0
+  rabbitpop: 30.0
+  whiteconc: 0.2
+timevars:
+  dt: 0.1
+  tend: 100.0
+  tstart: 0.0
+uservars:
+  L: 1.1
+  R: 0.12
+  S0: 3668.0
+  albedo_black: 0.25
+  albedo_ground: 0.5
+  albedo_white: 0.75
+  delta: 0.1
+  eta: 0.05
+  omega: 0.05
+  phi: 0.7
+  sigma: 5.67e-08
+  tau: 0.001
