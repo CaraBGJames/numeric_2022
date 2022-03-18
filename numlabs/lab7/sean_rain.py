@@ -119,12 +119,12 @@ def first_time_step(u, v, h, g, H, f, dt, dx, ho, gu, gv, gh, n_grid):
     """
     u.now[1:n_grid - 1] = 0
     v.now[1:n_grid - 1] = 0
-    ufactor = gu * ho / 2
+    ufactor = gu * ho 
     midpoint = n_grid // 2
     u.now[midpoint - 1] = -ufactor
     u.now[midpoint + 1] = ufactor
-    v.now[midpoint - 1] = -ho*g*f*dt**2/dx**2
-    v.now[midpoint + 1] = ho*g*f*dt**2/dx**2
+    v.now[midpoint - 1] = -ho*g*f*dt**2/(2*dx)
+    v.now[midpoint + 1] = ho*g*f*dt**2/(2*dx)
     h.now[1:n_grid - 1] = 0
     h.now[midpoint] = ho - g * H * ho * dt ** 2 / (dx ** 2)
 
@@ -204,8 +204,8 @@ def rain(args):
     dx = 1                      # grid spacing [cm]
     ho = 0.01                   # initial perturbation of surface [cm]
     gu = 2*g * dt / dx            # first handy constant
-    gv = f/(2*dt)
-    gh = H * dt / dx            # second handy constant
+    gv = f*(2*dt)
+    gh = 2*H * dt / dx            # second handy constant
     # Create velocity and surface height objects
     u = Quantity(n_grid, n_time)
     v = Quantity(n_grid,n_time)
