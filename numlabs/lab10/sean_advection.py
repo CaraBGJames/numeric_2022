@@ -12,15 +12,15 @@ def initialize(timesteps, lab_example=False):
     '''
     # below are the parameters that can be varied
     u = 20.
-    domain_length = 2500*20 # so it goes around the domain once in a day
+    domain_length = 86400*20 # so it goes around the domain once in a day
     effective_points = 500
     dx = domain_length/effective_points
 
-    dt = 0.4 * dx/ u
+    dt = 0.7 * dx/ u
     Numpoints = effective_points + 1
     shift = Numpoints * dx / 2
     c_0 = 1
-    alpha = 1 / (150e3)**2
+    alpha = 1 / (50e3)**2
     epsilon = 0.0001
 
     if lab_example:
@@ -57,7 +57,7 @@ def advect3_gettable(order, Numpoints):
     temp = np.zeros(5)
     ltable = np.zeros((order + 1, 5))
 
-    fname = '../../numlabs/lab10/Tables/l{0}_table.txt'.format(order)
+    fname = '../../numlabs/lab10/Tables/l{}_table.txt'.format(order)
     fp = open(fname, 'r')
 
     for i in range(order+1):
